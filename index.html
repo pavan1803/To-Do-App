@@ -5,133 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
-            margin: 0;
-        }
-        body{
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(45deg,blue,purple);
-        }
-        .container{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-        }
-        .to-do{
-            /* display: flex;
-            align-items: center; */
-            background-color: white;
-            width: 600px;
-            min-height: 300px;
-            margin: 100px auto 20px;
-            padding: 40px 30px 80px;
-            border-radius: 10px;
-        }
-        .to-do h2{
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
-        .to-do input{
-            /* display: flex;
-            align-items: center;
-            justify-content: center; */
-            margin: 50px auto;
-            width: 500px;
-            height: 40px;
-            border-radius: 20px;
-            background: transparent;
-            border: none;
-            background-color:darkgray;
-        }
-        .to-do button{
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            background-color: orange;
-            font-size: 1rem;
-            font-weight: 200;
-            color: rgb(75, 7, 7);
-            font-family:Georgia, 'Times New Roman', Times, serif;
-            border: 3px solid black;
-            font-style: italic;
-        }
-        ul li{
-            list-style: none;
-            font-size: 20px;
-            padding: 12px 8px 12px 50px;
-            user-select: none;
-            cursor: pointer;
-            position: relative;
-        }
-        ul li::before{
-            content: ' ';
-            position: absolute;
-            height: 28px;
-            width: 28px;
-            border-radius: 50%;
-            background-image: url(./assests/OIP\ \(1\).jpg);
-            background-size: cover;
-            background-position: center;
-            top: 12px;
-            left: 8px;
-        }
-         ul li.checked{
-            color: black;
-            text-decoration: line-through;
-         }
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-           ul li.checked::before{
-            color: black;
-            text-decoration: line-through;
-            background-image: url(./assests/round-check-mark-symbol-with-transparent-background-free-png.webp);
-         }
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-         ul li span {
-            position: absolute;
-            right: 0;
-            top: 5px;
-            width: 40px;
-            height: 40px;
-            font-size: 25px;
-            color: black;
-            line-height: 40px;
-            text-align: center;
-         }
-         ul li span:hover{
-            background: #edeef0;
 
-         }
-         .edit{
-    position: absolute;
-    right: 45px;
-    top: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    line-height: 40px;
+.container {
+    width: 100%;
+    padding: 20px;
+}
+
+
+.to-do {
+    background: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    padding: 30px 25px 60px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.to-do h1 {
     text-align: center;
+    margin-bottom: 25px;
+    color: #4f46e5;
+    font-size: 2rem;
+}
+
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#input-box {
+    flex: 1;
+    height: 45px;
+    border-radius: 25px;
+    border: none;
+    padding: 0 18px;
+    font-size: 1rem;
+    background: #f1f5f9;
+    outline: none;
+}
+
+#input-box:focus {
+    background: #ffffff;
+    box-shadow: 0 0 0 2px #4f46e5;
+}
+
+.to-do button {
+    width: 50px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: #f97316;
+    color: #ffffff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.to-do button:hover {
+    background: #ea580c;
+    transform: scale(1.05);
+}
+
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    position: relative;
+    padding: 14px 100px 14px 55px;
+    margin-bottom: 12px;
+    background: #f8fafc;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+ul li:hover {
+    background: #eef2ff;
+}
+
+/* Checkbox icon */
+ul li::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-image: url(./assests/OIP\ \(1\).jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Completed task */
+ul li.checked {
+    color: #6b7280;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(./assests/round-check-mark-symbol-with-transparent-background-free-png.webp);
+}
+
+
+.text {
+    display: inline-block;
+    max-width: 100%;
+    margin-right: 10px;
+}
+
+/* Delete button */
+/* ul li span:last-child {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+} */
+ ul li span:not(.text):not(.edit) {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
 }
 
-.edit:hover{
-    background: #edeef0;
+ul li span:last-child:hover {
+    background: #fee2e2;
+    color: #dc2626;
 }
 
-.edit-input{
-    width: 70%;
+
+.edit {
+    position: absolute;
+    right: 55px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
     font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
 }
-.text{
-    position: relative;
-    right: auto;
-    top: auto;
-    display: inline-block;
-    margin-right: 90px; /* space for edit + delete */
+
+.edit:hover {
+    background: #e0e7ff;
+}
+
+/* Edit input */
+.edit-input {
+    width: 100%;
+    border: none;
+    padding: 6px 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 0 0 2px #6366f1;
+}
+
+@media (max-width: 600px) {
+    .to-do {
+        padding: 25px 20px 50px;
+    }
+
+    .to-do h1 {
+        font-size: 1.6rem;
+    }
+
+    ul li {
+        padding: 14px 85px 14px 50px;
+        font-size: 0.95rem;
+    }
+
+    .edit {
+        right: 45px;
+    }
 }
     </style>
 </head>
@@ -233,3 +312,4 @@
     </script>
 </body>
 </html>
+
